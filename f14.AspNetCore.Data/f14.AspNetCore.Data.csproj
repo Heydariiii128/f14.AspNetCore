@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.5;net451</TargetFrameworks>
+    <RootNamespace>f14.AspNetCore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="f14.Common" Version="1.0.4" />
+    <PackageReference Include="f14.Extensions" Version="1.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="1.1.2" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\f14.AspNetCore\f14.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>
