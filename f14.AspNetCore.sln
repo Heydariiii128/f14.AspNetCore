@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f14.AspNetCore", "f14.AspNetCore\f14.AspNetCore.csproj", "{55AF0A20-C0E5-4043-AF52-65E096490E6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore", "f14.AspNetCore\f14.AspNetCore.csproj", "{55AF0A20-C0E5-4043-AF52-65E096490E6C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93D0BB1F-D99E-4875-A2ED-245EAD5A8449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f14.AspNetCore.Data", "f14.AspNetCore.Data\f14.AspNetCore.Data.csproj", "{5B7C52C5-7217-4FCC-B62C-E7547F7C533F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Data", "f14.AspNetCore.Data\f14.AspNetCore.Data.csproj", "{5B7C52C5-7217-4FCC-B62C-E7547F7C533F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f14.AspNetCore.Identity", "f14.AspNetCore.Identity\f14.AspNetCore.Identity.csproj", "{57789149-A4E8-4C1D-A500-64FD35D42345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{5B7C52C5-7217-4FCC-B62C-E7547F7C533F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B7C52C5-7217-4FCC-B62C-E7547F7C533F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B7C52C5-7217-4FCC-B62C-E7547F7C533F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57789149-A4E8-4C1D-A500-64FD35D42345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57789149-A4E8-4C1D-A500-64FD35D42345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57789149-A4E8-4C1D-A500-64FD35D42345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57789149-A4E8-4C1D-A500-64FD35D42345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
