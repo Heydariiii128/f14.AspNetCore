@@ -7,7 +7,8 @@
   <ItemGroup>
     <PackageReference Include="f14.Common" Version="1.0.3" />    
     <PackageReference Include="f14.IO" Version="1.0.3" />    
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="1.1.2" />    
+    <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="1.0.3" />
   </ItemGroup>
 
 </Project>
