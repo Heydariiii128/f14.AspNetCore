@@ -1,9 +1,10 @@
-﻿using System;
+﻿using f14;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 
-namespace f14.AspNetCore.Extensions
+namespace System.Security.Claims
 {
     /// <summary>
     /// Provides an extensions methods for claims.

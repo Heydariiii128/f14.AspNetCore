@@ -1,9 +1,9 @@
-﻿using System;
+﻿using f14;
+using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Text;
 
-namespace f14.AspNetCore.Extensions
+namespace System.Net
 {
     /// <summary>
     /// Provides an extension methods for network.
