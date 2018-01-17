@@ -18,7 +18,7 @@ namespace Microsoft.AspNetCore.Http
         public static string ReadBody(this HttpRequest request)
         {            
             ExHelper.NotNull(() => request);
-
+            
             string result = FileIO.ReadStream(request.Body, Encoding.UTF8, true, 1024, true);
             return result;
         }
