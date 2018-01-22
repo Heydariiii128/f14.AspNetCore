@@ -1,7 +1,5 @@
 ﻿using MailKit.Net.Smtp;
-using Microsoft.Extensions.Logging;
 using MimeKit;
-using System;
 using System.Threading.Tasks;
 
 namespace f14.AspNetCore.Mail

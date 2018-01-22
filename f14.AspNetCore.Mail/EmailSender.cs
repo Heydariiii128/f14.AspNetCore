@@ -1,8 +1,4 @@
-﻿using f14.AspNetCore.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace f14.AspNetCore.Mail
 {
