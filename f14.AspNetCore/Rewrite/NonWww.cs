@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace f14.AspNetCore.Engine.Rewrite
+namespace f14.AspNetCore.Rewrite
 {
     /// <summary>
     /// Provides the redirect rule which redirect "www.sample.com" to "sample.com".
@@ -14,12 +14,18 @@ namespace f14.AspNetCore.Engine.Rewrite
     public class NonWww : IRule
     {
         private bool _permanent = false;
-
+        /// <summary>
+        /// Creates new instance of rule.
+        /// </summary>
+        /// <param name="premanent">Determines whether redirect should be permanent or not.</param>
         public NonWww(bool premanent)
         {
             _permanent = premanent;
         }
-
+        /// <summary>
+        /// Apply this rule to the context.
+        /// </summary>
+        /// <param name="context">Context.</param>
         public void ApplyRule(RewriteContext context)
         {
             var request = context.HttpContext.Request;
