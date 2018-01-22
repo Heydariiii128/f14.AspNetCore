@@ -12,7 +12,7 @@ namespace System.Security.Claims
     public static class ClaimsExtension
     {
         /// <summary>
-        /// Tries to get user id.
+        /// Find claim value for type <see cref="ClaimTypes.NameIdentifier"/>.
         /// </summary>
         /// <param name="principal">The user claim principal.</param>
         /// <returns>The user id or null.</returns>
@@ -23,7 +23,7 @@ namespace System.Security.Claims
             return principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         }
         /// <summary>
-        /// Tries to get user name.
+        /// Find claim value for type <see cref="ClaimTypes.Name"/>.
         /// </summary>
         /// <param name="principal">The user claim principal.</param>
         /// <returns>The user name or null.</returns>
