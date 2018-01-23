@@ -44,8 +44,8 @@ namespace f14.AspNetCore.Identity
         /// <typeparam name="TUser">Type of user object.</typeparam>
         /// <param name="serviceProvider">A services.</param>
         /// <returns>A first object in the fluent api.</returns>
-        public static IDataStore<UserInfo, TUser> CreateUserUpdate<TUser>(IServiceProvider serviceProvider) where TUser : class
-            => CreateUserUpdate<UserInfo, TUser>(serviceProvider);
+        public static IDataStore<UserInfo, TUser> CreateUserUpdater<TUser>(IServiceProvider serviceProvider) where TUser : class
+            => CreateUserUpdater<UserInfo, TUser>(serviceProvider);
         /// <summary>
         /// Creates new instance of <see cref="IdentityUpdater"/> for role updates.
         /// </summary>
@@ -64,7 +64,7 @@ namespace f14.AspNetCore.Identity
         /// <typeparam name="TUser">Type of user object.</typeparam>
         /// <param name="serviceProvider">A services.</param>
         /// <returns>A first object in the fluent api.</returns>
-        public static IDataStore<TInfo, TUser> CreateUserUpdate<TInfo, TUser>(IServiceProvider serviceProvider)
+        public static IDataStore<TInfo, TUser> CreateUserUpdater<TInfo, TUser>(IServiceProvider serviceProvider)
             where TInfo : UserInfo
             where TUser : class
             => new IdentityUserUpdater<TInfo, TUser>(serviceProvider);
