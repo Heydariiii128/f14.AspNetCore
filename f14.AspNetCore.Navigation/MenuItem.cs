@@ -9,6 +9,42 @@ namespace f14.AspNetCore.Navigation
     public class MenuItem
     {
         /// <summary>
+        /// Creates new instance of menu item.
+        /// </summary>
+        public MenuItem()
+        {
+        }
+        /// <summary>
+        /// Creates new instance of menu item.
+        /// </summary>
+        /// <param name="header">The menu item header.</param>
+        public MenuItem(string header)
+        {
+            Header = header;
+        }
+        /// <summary>
+        /// Creates new instance of menu item.
+        /// </summary>
+        /// <param name="header">The menu item header.</param>
+        /// <param name="url">The target url.</param>
+        public MenuItem(string header, string url)
+        {
+            Header = header;
+            Url = url;
+        }
+        /// <summary>
+        /// Creates new instance of menu item.
+        /// </summary>
+        /// <param name="header">The menu item header.</param>
+        /// <param name="url">The target url.</param>
+        /// <param name="icon">The menu item icon.</param>
+        public MenuItem(string header, string url, string icon)
+        {
+            Header = header;
+            Url = url;
+            Icon = icon;
+        }
+        /// <summary>
         /// The header of the object.
         /// </summary>
         public string Header { get; set; }
@@ -24,6 +60,39 @@ namespace f14.AspNetCore.Navigation
         /// The nested items.
         /// </summary>
         public ICollection<MenuItem> Items { get; set; } = new List<MenuItem>();
+        /// <summary>
+        /// Adds nested item.
+        /// </summary>
+        /// <param name="header">The menu item header.</param>
+        /// <returns>The current object.</returns>
+        public MenuItem Add(string header)
+        {
+            Add(new MenuItem(header));
+            return this;
+        }
+        /// <summary>
+        /// Adds nested item.
+        /// </summary>
+        /// <param name="header">The menu item header.</param>
+        /// <param name="url">The target url.</param>
+        /// <returns>The current object.</returns>
+        public MenuItem Add(string header, string url)
+        {
+            Add(new MenuItem(header, url));
+            return this;
+        }
+        /// <summary>
+        /// Adds nested item.
+        /// </summary>
+        /// <param name="header">The menu item header.</param>
+        /// <param name="url">The target url.</param>
+        /// <param name="icon">The menu item icon.</param>
+        /// <returns>The current object.</returns>
+        public MenuItem Add(string header, string url, string icon)
+        {
+            Add(new MenuItem(header, url, icon));
+            return this;
+        }
         /// <summary>
         /// Adds nested item.
         /// </summary>
