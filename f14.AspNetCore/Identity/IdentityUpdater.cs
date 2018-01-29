@@ -1,12 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using f14.AspNetCore.Identity.Internal;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System.Security.Claims;
-using f14.AspNetCore.Identity.Internal;
+using System.Threading.Tasks;
 
 namespace f14.AspNetCore.Identity
 {
@@ -33,6 +28,9 @@ namespace f14.AspNetCore.Identity
         /// </summary>
         /// <returns>A updater task.</returns>
         public abstract Task ExecuteAsync();
+
+        #region Static
+
         /// <summary>
         /// Creates new instance of <see cref="IdentityUpdater"/> for role updates.
         /// </summary>
@@ -75,5 +73,7 @@ namespace f14.AspNetCore.Identity
             where TInfo : UserInfo
             where TUser : class
             => new IdentityUserUpdater<TInfo, TUser>(userManager, loggerFactory);
+
+        #endregion
     }
 }
