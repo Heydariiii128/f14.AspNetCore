@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.5\f14.AspNetCore.xml</DocumentationFile>    
+    <DocumentationFile>bin\Release\netstandard2.0\f14.AspNetCore.xml</DocumentationFile>    
   </PropertyGroup>
 
 </Project>
