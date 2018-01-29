@@ -15,15 +15,18 @@ namespace f14.AspNetCore.Identity
     /// </summary>
     public abstract class IdentityUpdater : IUpdaterExecutor
     {
-        protected ILogger Log { get; set; }
+        /// <summary>
+        /// Retruns the logger.
+        /// </summary>
+        protected ILogger Log { get; private set; }
 
         /// <summary>
         /// Default ctor with log.
         /// </summary>
-        /// <param name="log">Logger instance.</param>
-        protected IdentityUpdater(ILogger log)
+        /// <param name="loggerFactory">The logger factory.</param>
+        protected IdentityUpdater(ILoggerFactory loggerFactory)
         {
-            Log = log;
+            Log = loggerFactory.CreateLogger(GetType());
         }
         /// <summary>
         /// Executes updater actions.
@@ -34,39 +37,43 @@ namespace f14.AspNetCore.Identity
         /// Creates new instance of <see cref="IdentityUpdater"/> for role updates.
         /// </summary>
         /// <typeparam name="TRole">Type of role object.</typeparam>
-        /// <param name="serviceProvider">A services.</param>
+        /// <param name="roleManager">The role manager.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
         /// <returns>A first object in the fluent api.</returns>
-        public static IDataStore<RoleInfo, TRole> CreateRoleUpdater<TRole>(IServiceProvider serviceProvider) where TRole : class
-            => CreateRoleUpdater<RoleInfo, TRole>(serviceProvider);
+        public static IDataStore<RoleInfo, TRole> CreateRoleUpdater<TRole>(RoleManager<TRole> roleManager, ILoggerFactory loggerFactory) where TRole : class
+            => CreateRoleUpdater<RoleInfo, TRole>(roleManager, loggerFactory);
         /// <summary>
         /// Creates new instance of <see cref="IdentityUpdater"/> for user updates.
         /// </summary>
         /// <typeparam name="TUser">Type of user object.</typeparam>
-        /// <param name="serviceProvider">A services.</param>
+        /// <param name="userManager">The role manager.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
         /// <returns>A first object in the fluent api.</returns>
-        public static IDataStore<UserInfo, TUser> CreateUserUpdater<TUser>(IServiceProvider serviceProvider) where TUser : class
-            => CreateUserUpdater<UserInfo, TUser>(serviceProvider);
+        public static IDataStore<UserInfo, TUser> CreateUserUpdater<TUser>(UserManager<TUser> userManager, ILoggerFactory loggerFactory) where TUser : class
+            => CreateUserUpdater<UserInfo, TUser>(userManager, loggerFactory);
         /// <summary>
         /// Creates new instance of <see cref="IdentityUpdater"/> for role updates.
         /// </summary>
         /// <typeparam name="TInfo">Type of info object.</typeparam>
         /// <typeparam name="TRole">Type of role object.</typeparam>
-        /// <param name="serviceProvider">A services.</param>
+        /// <param name="roleManager">The role manager.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
         /// <returns>A first object in the fluent api.</returns>
-        public static IDataStore<TInfo, TRole> CreateRoleUpdater<TInfo, TRole>(IServiceProvider serviceProvider)
+        public static IDataStore<TInfo, TRole> CreateRoleUpdater<TInfo, TRole>(RoleManager<TRole> roleManager, ILoggerFactory loggerFactory)
             where TInfo : RoleInfo
             where TRole : class
-            => new IdentityRoleUpdater<TInfo, TRole>(serviceProvider);
+            => new IdentityRoleUpdater<TInfo, TRole>(roleManager, loggerFactory);
         /// <summary>
         /// Creates new instance of <see cref="IdentityUpdater"/> for user updates.
         /// </summary>
         /// <typeparam name="TInfo">Type of info object.</typeparam>
         /// <typeparam name="TUser">Type of user object.</typeparam>
-        /// <param name="serviceProvider">A services.</param>
+        /// <param name="userManager">The role manager.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
         /// <returns>A first object in the fluent api.</returns>
-        public static IDataStore<TInfo, TUser> CreateUserUpdater<TInfo, TUser>(IServiceProvider serviceProvider)
+        public static IDataStore<TInfo, TUser> CreateUserUpdater<TInfo, TUser>(UserManager<TUser> userManager, ILoggerFactory loggerFactory)
             where TInfo : UserInfo
             where TUser : class
-            => new IdentityUserUpdater<TInfo, TUser>(serviceProvider);
+            => new IdentityUserUpdater<TInfo, TUser>(userManager, loggerFactory);
     }
 }

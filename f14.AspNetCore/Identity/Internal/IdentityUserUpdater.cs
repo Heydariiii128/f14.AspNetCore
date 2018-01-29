@@ -23,11 +23,12 @@ namespace f14.AspNetCore.Identity.Internal
         /// <summary>
         /// Creates new instance of updater.
         /// </summary>
-        /// <param name="services">A services.</param>
-        public IdentityUserUpdater(IServiceProvider services)
-            : base(services.GetService<ILoggerFactory>().CreateLogger<IdentityUserUpdater<TInfo, TUser>>())
+        /// <param name="userManager">The user manager.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
+        public IdentityUserUpdater(UserManager<TUser> userManager, ILoggerFactory loggerFactory)
+            : base(loggerFactory)
         {
-            UserManager = services.GetService<UserManager<TUser>>();
+            UserManager = userManager;
         }
 
         #region Private

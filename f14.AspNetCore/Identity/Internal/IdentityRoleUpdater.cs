@@ -25,11 +25,12 @@ namespace f14.AspNetCore.Identity.Internal
         /// <summary>
         /// Creates new instance of updater.
         /// </summary>
-        /// <param name="services">A services.</param>
-        public IdentityRoleUpdater(IServiceProvider services)
-            : base(services.GetService<ILoggerFactory>().CreateLogger<IdentityRoleUpdater<TInfo, TRole>>())
+        /// <param name="roleManager">The role manager.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
+        public IdentityRoleUpdater(RoleManager<TRole> roleManager, ILoggerFactory loggerFactory)
+            : base(loggerFactory)
         {
-            RoleManager = services.GetService<RoleManager<TRole>>();
+            RoleManager = roleManager;
         }
 
         #region Private
