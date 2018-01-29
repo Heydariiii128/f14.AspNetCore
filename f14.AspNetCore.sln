@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore", "f14.AspNe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{93D0BB1F-D99E-4875-A2ED-245EAD5A8449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f14.AspNetCore.Tests", "f14.AspNetCore.Tests\f14.AspNetCore.Tests.csproj", "{FC946349-8B58-4464-AE14-46016740F72C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Tests", "f14.AspNetCore.Tests\f14.AspNetCore.Tests.csproj", "{FC946349-8B58-4464-AE14-46016740F72C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Mail", "f14.AspNetCore.Mail\f14.AspNetCore.Mail.csproj", "{4BD45F7C-CA33-4D24-A112-3E12542189AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Navigation", "f14.AspNetCore.Navigation\f14.AspNetCore.Navigation.csproj", "{FF3E0FBB-53BD-4002-8523-CD9A49EBFBBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f14.AspNetCore.Data", "f14.AspNetCore.Data\f14.AspNetCore.Data.csproj", "{CA84181E-EEFB-4388-A5C4-5612990EF19F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,18 @@ Global
 		{FC946349-8B58-4464-AE14-46016740F72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC946349-8B58-4464-AE14-46016740F72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC946349-8B58-4464-AE14-46016740F72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD45F7C-CA33-4D24-A112-3E12542189AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD45F7C-CA33-4D24-A112-3E12542189AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD45F7C-CA33-4D24-A112-3E12542189AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD45F7C-CA33-4D24-A112-3E12542189AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF3E0FBB-53BD-4002-8523-CD9A49EBFBBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3E0FBB-53BD-4002-8523-CD9A49EBFBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3E0FBB-53BD-4002-8523-CD9A49EBFBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3E0FBB-53BD-4002-8523-CD9A49EBFBBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA84181E-EEFB-4388-A5C4-5612990EF19F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA84181E-EEFB-4388-A5C4-5612990EF19F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA84181E-EEFB-4388-A5C4-5612990EF19F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA84181E-EEFB-4388-A5C4-5612990EF19F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
