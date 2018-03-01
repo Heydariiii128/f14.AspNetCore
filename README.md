@@ -1,16 +1,14 @@
 # Intro
 
-This class library contains auxiliary classes and helpers for using in AspNetCore projects.
-
-I will present a list of classes on wikis later.
+This class library contains classes and helpers for using with AspNetCore projects.
 
 # Install
 
-[Nuget](https://www.nuget.org/packages/f14.AspNetCore/): `Install-Package f14.AspNetCore -Version 1.0.0`
+[Nuget](https://www.nuget.org/packages/f14.AspNetCore/): `Install-Package f14.AspNetCore`
 
 # Authors
 
-* [f14shm4n](https://github.com/f14shm4n)
+[f14shm4n](https://github.com/f14shm4n)
 
 # License
 
