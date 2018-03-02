@@ -6,7 +6,7 @@ namespace f14.AspNetCore.Navigation
     /// <summary>
     /// Represents as base navigation menu item.
     /// </summary>
-    public class MenuItem
+    public sealed class MenuItem : IMenuItem<MenuItem>
     {
         /// <summary>
         /// Creates new instance of menu item.
@@ -65,22 +65,14 @@ namespace f14.AspNetCore.Navigation
         /// </summary>
         /// <param name="header">The menu item header.</param>
         /// <returns>The current object.</returns>
-        public MenuItem Add(string header)
-        {
-            Add(new MenuItem(header));
-            return this;
-        }
+        public MenuItem Add(string header) => Add(new MenuItem(header));
         /// <summary>
         /// Adds nested item.
         /// </summary>
         /// <param name="header">The menu item header.</param>
         /// <param name="url">The target url.</param>
         /// <returns>The current object.</returns>
-        public MenuItem Add(string header, string url)
-        {
-            Add(new MenuItem(header, url));
-            return this;
-        }
+        public MenuItem Add(string header, string url) => Add(new MenuItem(header, url));
         /// <summary>
         /// Adds nested item.
         /// </summary>
@@ -88,11 +80,7 @@ namespace f14.AspNetCore.Navigation
         /// <param name="url">The target url.</param>
         /// <param name="icon">The menu item icon.</param>
         /// <returns>The current object.</returns>
-        public MenuItem Add(string header, string url, string icon)
-        {
-            Add(new MenuItem(header, url, icon));
-            return this;
-        }
+        public MenuItem Add(string header, string url, string icon) => Add(new MenuItem(header, url, icon));
         /// <summary>
         /// Adds nested item.
         /// </summary>
@@ -101,7 +89,6 @@ namespace f14.AspNetCore.Navigation
         public MenuItem Add(MenuItem item)
         {
             ExHelper.NotNull(() => item);
-
             Items.Add(item);
             return this;
         }
