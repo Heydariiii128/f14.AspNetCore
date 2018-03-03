@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore", "f14.AspNetCore\f14.AspNetCore.csproj", "{55AF0A20-C0E5-4043-AF52-65E096490E6C}"
 EndProject
@@ -13,7 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Mail", "f14.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Navigation", "f14.AspNetCore.Navigation\f14.AspNetCore.Navigation.csproj", "{FF3E0FBB-53BD-4002-8523-CD9A49EBFBBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f14.AspNetCore.Data", "f14.AspNetCore.Data\f14.AspNetCore.Data.csproj", "{CA84181E-EEFB-4388-A5C4-5612990EF19F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Data", "f14.AspNetCore.Data\f14.AspNetCore.Data.csproj", "{CA84181E-EEFB-4388-A5C4-5612990EF19F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f14.AspNetCore.Mvc", "f14.AspNetCore.Mvc\f14.AspNetCore.Mvc.csproj", "{FA1E8754-2D49-45C7-9B07-CDACB6CED905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{8AE0ECAC-F2A0-4A6C-BACE-724E4A32BF17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewRenderSample", "Samples\ViewRenderSample\ViewRenderSample.csproj", "{075E2BE7-DE2A-4E58-96BD-A6EA27A41B5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +47,21 @@ Global
 		{CA84181E-EEFB-4388-A5C4-5612990EF19F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA84181E-EEFB-4388-A5C4-5612990EF19F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA84181E-EEFB-4388-A5C4-5612990EF19F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA1E8754-2D49-45C7-9B07-CDACB6CED905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA1E8754-2D49-45C7-9B07-CDACB6CED905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA1E8754-2D49-45C7-9B07-CDACB6CED905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA1E8754-2D49-45C7-9B07-CDACB6CED905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075E2BE7-DE2A-4E58-96BD-A6EA27A41B5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075E2BE7-DE2A-4E58-96BD-A6EA27A41B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075E2BE7-DE2A-4E58-96BD-A6EA27A41B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075E2BE7-DE2A-4E58-96BD-A6EA27A41B5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FC946349-8B58-4464-AE14-46016740F72C} = {93D0BB1F-D99E-4875-A2ED-245EAD5A8449}
+		{075E2BE7-DE2A-4E58-96BD-A6EA27A41B5C} = {8AE0ECAC-F2A0-4A6C-BACE-724E4A32BF17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87F42E08-4364-4AB1-823C-BB40BBF43E26}
