@@ -5,7 +5,7 @@ using System.Text;
 namespace f14.AspNetCore.Rest
 {
     /// <summary>
-    /// Provides a common json response object for REST requests.
+    /// Provides a common json object for http requests.
     /// </summary>
     public class JsonResponse
     {
