@@ -14,16 +14,21 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>AspNetCore;MVC</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.0.0-a1</Version>
+    <Version>1.0.0-a2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\f14.AspNetCore.Mvc.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netcoreapp2.0\f14.AspNetCore.Mvc.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="f14.Common" Version="1.1.3" />
+    <PackageReference Include="f14.Common" Version="1.1.4" />
+    <PackageReference Include="f14.EFCore.Abstractions" Version="0.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\f14.AspNetCore\f14.AspNetCore.csproj" />
   </ItemGroup>
 
 </Project>

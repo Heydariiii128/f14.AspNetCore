@@ -14,11 +14,11 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>NetStandard;AspNetCore</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.0.1</Version>
+    <Version>2.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="f14.Common" Version="1.1.3" />
+    <PackageReference Include="f14.Common" Version="1.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.0.0" />    
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.1" />    
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.1" />    
