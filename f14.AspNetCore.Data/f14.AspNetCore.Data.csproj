@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>f14.AspNetCore.Data</AssemblyName>
     <RootNamespace>f14.AspNetCore.Data</RootNamespace>
     <Authors>f14shm4n</Authors>
@@ -14,11 +14,11 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>NetStandard;AspNetCore;Data;Model</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.0-a</Version>
+    <Version>2.0.0-a1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.0\f14.AspNetCore.Data.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\f14.AspNetCore.Data.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

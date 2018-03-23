@@ -4,9 +4,20 @@ using System.Text;
 
 namespace f14.AspNetCore.Data
 {
-    public interface IDateInfo
+    /// <summary>
+    /// The base interface for object that must support create and modify date with default date type <see cref="DateTime"/>.
+    /// </summary>
+    public interface IDateInfo : IDateInfo<DateTime>
     {
-        DateTime Created { get; set; }
-        DateTime Modified { get; set; }
+
+    }
+    /// <summary>
+    /// The base interface for object that must support create and modify date.
+    /// </summary>
+    /// <typeparam name="T">Type of date type.</typeparam>
+    public interface IDateInfo<T>
+    {
+        T Created { get; set; }
+        T Modified { get; set; }
     }
 }

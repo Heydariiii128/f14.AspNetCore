@@ -15,17 +15,11 @@ namespace f14.AspNetCore.Data
     /// Provides a base interface for data model that should support permalink value.
     /// </summary>
     /// <typeparam name="TKey">Type of data model key.</typeparam>
-    public interface IPermalink<TKey>
+    public interface IPermalink<TKey> : IDataModel<TKey>
     {
         /// <summary>
-        /// Gets a data model key.
+        /// Gets or sets permalink.
         /// </summary>
-        /// <returns>The key of current model.</returns>
-        TKey GetId();
-        /// <summary>
-        /// Gets a data model permalink.
-        /// </summary>
-        /// <returns>The permalink of current model.</returns>
-        string GetPermalink();
+        string Permalink { get; set; }
     }
 }
