@@ -19,9 +19,9 @@
 
   <ItemGroup>
     <PackageReference Include="f14.Common" Version="1.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Html.Abstractions" Version="2.0.0" />    
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.1" />    
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.1" />    
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.1" />        
     <PackageReference Include="Microsoft.AspNetCore.Rewrite" Version="2.0.1" />    
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />        
   </ItemGroup>
