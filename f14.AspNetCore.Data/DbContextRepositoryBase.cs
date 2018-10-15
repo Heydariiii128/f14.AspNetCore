@@ -11,7 +11,7 @@ namespace f14.AspNetCore.Data
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TDbContext"></typeparam>
-    public class DbContextRepositoryBase<T, TDbContext> : ObjectRepository<T>
+    public class DbContextRepositoryBase<T, TDbContext> : ObjectRepository<T>, IDbContextRepositoryBase<T, TDbContext>
         where T : class
         where TDbContext : DbContext
     {
@@ -27,5 +27,19 @@ namespace f14.AspNetCore.Data
         /// 
         /// </summary>
         public TDbContext DbContext { get; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="onDeleted"></param>
+        public void Clear(Action<int> onDeleted)
+        {
+            List<T> toDel;
+            while ((toDel = Table.Take(100).ToList()).Count > 0)
+            {
+                DbContext.RemoveRange(toDel);
+                int deleted = DbContext.SaveChanges();
+                onDeleted(deleted);
+            }
+        }
     }
 }
