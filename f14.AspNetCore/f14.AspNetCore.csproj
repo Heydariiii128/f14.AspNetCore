@@ -8,7 +8,6 @@
     <Company>f14shm4n</Company>
     <Copyright>f14shm4n</Copyright>
     <Description>Provides common classes and utilities for AspNetCore.</Description>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/f14shm4n/f14.AspNetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/f14shm4n/f14.AspNetCore.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -27,4 +26,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\f14.AspNetCore.xml</DocumentationFile>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
+  </ItemGroup>
 </Project>
