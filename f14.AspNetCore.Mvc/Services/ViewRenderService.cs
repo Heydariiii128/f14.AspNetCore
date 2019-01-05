@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ namespace f14.AspNetCore.Mvc.Utils
     /// Provides methods for render a view to a string.
     /// Main code taken from: <see cref="https://ppolyzos.com/2016/09/09/asp-net-core-render-view-to-string/"/>.
     /// </summary>
-    public class ViewRenderService
+    public sealed class ViewRenderService
     {
         private readonly IRazorViewEngine _razorViewEngine;
         private readonly ITempDataProvider _tempDataProvider;
@@ -38,56 +39,38 @@ namespace f14.AspNetCore.Mvc.Utils
             _serviceProvider = serviceProvider;
         }
 
-        #region Absolute path based
+        #region Public API
 
         /// <summary>
-        /// Renders the view to a string using a absolute view path.
+        /// Renders the view to a string using a view location.
         /// </summary>
-        /// <param name="viewPath">The view name.</param>
+        /// <param name="viewName">The view name.</param>
         /// <param name="model">The view model.</param>
+        /// <param name="fromCustomPath">Determines whether the service should search views in non default locations.</param>
         /// <returns>The action task.</returns>
-        public Task<string> RenderFromFileAsync(string viewPath, object model) => RenderFromFileAsync(viewPath, model, null);
+        public Task<string> RenderAsync(string viewName, object model, bool fromCustomPath = false) => RenderAsync(viewName, model, null, fromCustomPath);
         /// <summary>
-        /// Renders the view to a string using a absolute view path.
+        /// Renders the view to a string using a view location.
         /// </summary>
-        /// <param name="viewPath">The view name.</param>
+        /// <param name="viewName">The view name.</param>
         /// <param name="model">The view model.</param>
         /// <param name="viewData">The view data.</param>
+        /// <param name="fromCustomPath">Determines whether the service should search views in non default locations.</param>
         /// <returns>The action task.</returns>
-        public Task<string> RenderFromFileAsync(string viewPath, object model, IDictionary<string, object> viewData) => RenderFromFileAsync(new DefaultHttpContext { RequestServices = _serviceProvider }, viewPath, model, viewData);
-        /// <summary>
-        /// Renders the view to a string using a absolute view path.
-        /// </summary>
-        /// <param name="httpContext">The http context.</param>
-        /// <param name="viewPath">The view name.</param>
-        /// <param name="model">The view model.</param>
-        /// <param name="viewData">The view data.</param>
-        /// <returns>The action task.</returns>
-        public Task<string> RenderFromFileAsync(HttpContext httpContext, string viewPath, object model, IDictionary<string, object> viewData)
+        public Task<string> RenderAsync(string viewName, object model, IDictionary<string, object> viewData, bool fromCustomPath = false)
         {
-            var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
-            var viewResult = _razorViewEngine.GetView(null, viewPath, false);
-            return RenderToStringAsync(actionContext, viewResult, model, viewData);
+            HttpContext httpContext;
+            var httpContextAccessor = _serviceProvider.GetService<IHttpContextAccessor>();
+            if (httpContextAccessor != null)
+            {
+                httpContext = httpContextAccessor.HttpContext;
+            }
+            else
+            {
+                httpContext = new DefaultHttpContext { RequestServices = _serviceProvider };
+            }
+            return RenderAsync(httpContext, viewName, model, viewData, fromCustomPath);
         }
-
-        #endregion
-
-        #region ViewLocation path based
-        /// <summary>
-        /// Renders the view to a string using a view location.
-        /// </summary>
-        /// <param name="viewName">The view name.</param>
-        /// <param name="model">The view model.</param>
-        /// <returns>The action task.</returns>
-        public Task<string> RenderAsync(string viewName, object model) => RenderAsync(viewName, model, null);
-        /// <summary>
-        /// Renders the view to a string using a view location.
-        /// </summary>
-        /// <param name="viewName">The view name.</param>
-        /// <param name="model">The view model.</param>
-        /// <param name="viewData">The view data.</param>
-        /// <returns>The action task.</returns>
-        public Task<string> RenderAsync(string viewName, object model, IDictionary<string, object> viewData) => RenderAsync(new DefaultHttpContext { RequestServices = _serviceProvider }, viewName, model, viewData);
         /// <summary>
         /// Renders the view to a string using a view location.
         /// </summary>
@@ -95,11 +78,14 @@ namespace f14.AspNetCore.Mvc.Utils
         /// <param name="viewName">The view name.</param>
         /// <param name="model">The view model.</param>
         /// <param name="viewData">The view data.</param>
+        /// <param name="fromCustomPath">Determines whether the service should search views in non default locations.</param>
         /// <returns>The action task.</returns>
-        public Task<string> RenderAsync(HttpContext httpContext, string viewName, object model, IDictionary<string, object> viewData)
+        public Task<string> RenderAsync(HttpContext httpContext, string viewName, object model, IDictionary<string, object> viewData, bool fromCustomPath)
         {
-            var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
-            var viewResult = _razorViewEngine.FindView(actionContext, viewName, false);
+            var actionContext = new ActionContext(httpContext, httpContext.GetRouteData(), new ActionDescriptor());
+            var viewResult = fromCustomPath
+                ? _razorViewEngine.GetView(null, viewName, false)
+                : _razorViewEngine.FindView(actionContext, viewName, false);
             return RenderToStringAsync(actionContext, viewResult, model, viewData);
         }
 
@@ -115,7 +101,7 @@ namespace f14.AspNetCore.Mvc.Utils
         /// <param name="model"></param>
         /// <param name="viewData"></param>
         /// <returns>The action task.</returns>
-        public async Task<string> RenderToStringAsync(ActionContext actionContext, ViewEngineResult viewResult, object model, IDictionary<string, object> viewData)
+        private async Task<string> RenderToStringAsync(ActionContext actionContext, ViewEngineResult viewResult, object model, IDictionary<string, object> viewData)
         {
             using (var sw = new StringWriter())
             {

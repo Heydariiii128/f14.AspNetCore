@@ -22,10 +22,10 @@ namespace f14.AspNetCore.Mvc
         /// <summary>
         /// Creates new isntance of the controller with logger.
         /// </summary>
-        /// <param name="loggerFactory">The logger factory.</param>
-        protected ExtendedController(ILoggerFactory loggerFactory)
+        /// <param name="logger">The logger.</param>
+        protected ExtendedController(ILogger logger)
         {
-            Log = loggerFactory.CreateLogger(GetType());
+            Log = logger;
         }
 
         #region JsonResponse
