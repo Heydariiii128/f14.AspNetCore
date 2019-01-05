@@ -29,8 +29,14 @@ namespace ViewRenderSample.Controllers
         public async Task<IActionResult> RenderCustomView([FromServices] IHostingEnvironment env, [FromServices] ViewRenderService viewRender)
         {
             ViewData["Type"] = 2;
-            string result = await viewRender.RenderFromFileAsync("~/CustomViews/CustomTestView.cshtml", new TestViewModel { Title = "Test view" }, ViewData);
+            string result = await viewRender.RenderAsync("~/CustomViews/CustomTestView.cshtml", new TestViewModel { Title = "Test view" }, ViewData, true);
             return Content(result);
+        }
+
+        [HttpGet("test-action/{id}/{name}")]
+        public IActionResult TestAction(int id, string name)
+        {
+            return Ok($"Test Action: [{id}, {name}]");
         }
 
         public IActionResult Error()
