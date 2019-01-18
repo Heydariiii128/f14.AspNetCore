@@ -10,7 +10,7 @@ namespace f14.AspNetCore.Data
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TDbContext"></typeparam>
-    public interface IDbContextRepositoryBase<T, TDbContext> : IObjectRepository<T>
+    public interface IDbContextRepositoryBase<T, TDbContext> : IManagedRepository<T>
         where T : class
         where TDbContext : DbContext
     {

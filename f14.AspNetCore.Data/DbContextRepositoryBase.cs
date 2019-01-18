@@ -6,32 +6,52 @@ using System.Text;
 
 namespace f14.AspNetCore.Data
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TDbContext"></typeparam>
     public class DbContextRepositoryBase<T, TDbContext> : ObjectRepository<T>, IDbContextRepositoryBase<T, TDbContext>
         where T : class
         where TDbContext : DbContext
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dbContext"></param>
         public DbContextRepositoryBase(TDbContext dbContext) : base(dbContext.Set<T>())
         {
             DbContext = dbContext;
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
         public TDbContext DbContext { get; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="onDeleted"></param>
-        public void Clear(Action<int> onDeleted)
+
+        public virtual int Add(T o)
+        {
+            DbContext.Add(o);
+            return DbContext.SaveChanges();
+        }
+
+        public virtual int AddRange(IEnumerable<T> list)
+        {
+            DbContext.AddRange(list);
+            return DbContext.SaveChanges();
+        }
+
+        public virtual int Delete(T o)
+        {
+            DbContext.Remove(o);
+            return DbContext.SaveChanges();
+        }
+
+        public virtual int DeleteRange(IEnumerable<T> list)
+        {
+            DbContext.RemoveRange(list);
+            return DbContext.SaveChanges();
+        }
+
+        public virtual int Update(T o)
+        {
+            return 0;
+        }
+
+        public virtual int Update(T to, T from)
+        {
+            return 0;
+        }
+
+        public virtual void Clear(Action<int> onDeleted)
         {
             List<T> toDel;
             while ((toDel = Table.Take(100).ToList()).Count > 0)
