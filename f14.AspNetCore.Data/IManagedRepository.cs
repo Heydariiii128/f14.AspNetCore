@@ -15,19 +15,26 @@ namespace f14.AspNetCore.Data
         /// </summary>
         /// <param name="o">The object to add to the db.</param>
         /// <returns>The affected rows.</returns>
-        int Insert(T o);
+        int Add(T o);
         /// <summary>
         /// Addesan objects into the db.
         /// </summary>
         /// <param name="list">The objects to add to the db.</param>
         /// <returns>The affected rows.</returns>
-        int InsertRange(IEnumerable<T> list);
+        int AddRange(IEnumerable<T> list);
         /// <summary>
         /// Updates an object in the db.
         /// </summary>
         /// <param name="o">The data source object.</param>
         /// <returns>The affected rows.</returns>
         int Update(T o);
+        /// <summary>
+        /// Updates first object using data from second object.
+        /// </summary>
+        /// <param name="to">Object which accept data from other object.</param>
+        /// <param name="from">Object which provides data for update.</param>
+        /// <returns>The affected rows.</returns>
+        int Update(T to, T from);
         /// <summary>
         /// Deletes an object from db.
         /// </summary>
