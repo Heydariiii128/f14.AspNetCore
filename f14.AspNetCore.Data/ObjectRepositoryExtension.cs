@@ -10,18 +10,12 @@ namespace f14.AspNetCore.Data
     public static class ObjectRepositoryExtension
     {
         public static List<T> GetAllAsNoTracking<T>(this IObjectRepository<T> repository) where T : class
-        {
-            return repository.Table.AsNoTracking().ToList();
-        }
+            => repository.Table.AsNoTracking().ToList();
 
-        public static List<T> GetAll<T>(this IObjectRepository<T> repository, Expression<Func<T, bool>> filter) where T : class
-        {
-            return repository.Table.Where(filter).AsNoTracking().ToList();
-        }
+        public static List<T> GetAllAsNoTracking<T>(this IObjectRepository<T> repository, Expression<Func<T, bool>> filter) where T : class
+            => repository.Table.Where(filter).AsNoTracking().ToList();
 
         public static T GetAsNoTracking<T>(this IObjectRepository<T> repository, Expression<Func<T, bool>> selector) where T : class
-        {
-            return repository.Table.AsNoTracking().FirstOrDefault(selector);
-        }
+            => repository.Table.AsNoTracking().FirstOrDefault(selector);
     }
 }

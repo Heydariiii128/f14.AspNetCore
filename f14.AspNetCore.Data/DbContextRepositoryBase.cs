@@ -42,7 +42,7 @@ namespace f14.AspNetCore.Data
         }
 
         public virtual int Update(T o)
-        {
+        {            
             return 0;
         }
 
