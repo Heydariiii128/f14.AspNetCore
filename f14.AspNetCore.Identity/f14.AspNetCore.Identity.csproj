@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <AssemblyName>f14.AspNetCore.Identity</AssemblyName>
     <RootNamespace>f14.AspNetCore.Identity</RootNamespace>
     <Authors>f14shm4n</Authors>
@@ -13,13 +13,13 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>NetStandard;AspNetCore;Identity</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.1.1</Version>
+    <Version>2.2.0</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\f14.AspNetCore.Identity.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netcoreapp2.2\f14.AspNetCore.Identity.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -27,6 +27,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\f14.AspNetCore.Identity.Core\f14.AspNetCore.Identity.Core.csproj" />
   </ItemGroup>
 </Project>

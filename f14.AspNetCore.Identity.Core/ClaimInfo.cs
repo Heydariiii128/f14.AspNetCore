@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Text;
 
 namespace f14.AspNetCore.Identity
 {
     /// <summary>
-    /// Represents the role proxy object.
+    /// Represents the claim proxy object.
     /// </summary>
-    public class RoleInfo : IRoleInfo
+    public class ClaimInfo : IClaimInfo
     {
         /// <summary>
         /// Role name.
         /// </summary>
-        public string Name { get; set; }
+        public string Type { get; set; }
         /// <summary>
         /// Role claims.
         /// </summary>
-        public IEnumerable<(string Type, string Value)> Claims { get; set; }
+        public string Value { get; set; }
     }
 }

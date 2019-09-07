@@ -5,7 +5,7 @@ using System.Text;
 namespace f14.AspNetCore.Identity
 {
     /// <summary>
-    /// Provides an interface for user info that can be used in the <see cref="IdentityUpdater"/>.
+    /// Provides an interface for user info.
     /// </summary>
     public interface IUserInfo
     {

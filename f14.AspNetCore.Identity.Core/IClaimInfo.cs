@@ -5,17 +5,17 @@ using System.Text;
 namespace f14.AspNetCore.Identity
 {
     /// <summary>
-    /// Represents the role proxy object.
+    /// Represents the claim proxy object.
     /// </summary>
-    public interface IRoleInfo
+    public interface IClaimInfo
     {
         /// <summary>
-        /// Role name.
+        /// Claim type.
         /// </summary>
-        string Name { get; set; }
+        string Type { get; set; }
         /// <summary>
-        /// Role claims.
+        /// Claim value.
         /// </summary>
-        IEnumerable<(string Type, string Value)> Claims { get; set; }
+        string Value { get; set; }
     }
 }
