@@ -14,7 +14,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace f14.AspNetCore.Mvc.Utils
+namespace f14.AspNetCore.Mvc
 {
     /// <summary>
     /// Provides methods for render a view to a string.

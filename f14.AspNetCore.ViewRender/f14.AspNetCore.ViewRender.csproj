@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>f14.AspNetCore.ViewRender</AssemblyName>
+    <RootNamespace>f14.AspNetCore.Mvc</RootNamespace>
+    <Authors>f14shm4n</Authors>
+    <Company>f14shm4n</Company>
+    <Copyright>f14shm4n</Copyright>
+    <Description>Provides classes and helpers for rendering html views.</Description>
+    <PackageProjectUrl>https://github.com/f14shm4n/f14.AspNetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/f14shm4n/f14.AspNetCore.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>AspNetCore;MVC;Render;View;Html</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>2.2.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.2\f14.AspNetCore.ViewRender.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
